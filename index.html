@@ -1,6 +1,48 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    </head>
+    <script>
+    window.onkeyup = function() {
+        $('textarea').each(function(){    
+            var id = $(this).attr('id');
+            var value = $(this).val();
+        localStorage.setItem(id, value);
+        }); 
+    }
+    window.onload = function() { 
+        $('textarea').each(function(){    
+        var id = $(this).attr('id');
+        var text2 = localStorage.getItem(id);
+        if (text2 !== null) $('#'+id).val(text2);
+        }); 
+    }
+    </script>
     <body>
-        <p>Startpage</p>
+        <div class="content">
+            <div class="boxes">
+                <div class="box" style="float: left">
+                    <h1>Media</h1>
+                    <a href="https://www.youtube.com/">YouTube</a><br>
+                    <a href="https://www.twitch.tv/">Twitch</a>
+                </div>
+                <div class="box" style="float: right">
+                    <h1>School</h1>
+                    <a href="https://seqta.com.au/">SEQTA</a>
+                </div>
+                <div class="box" style="float: right">
+                    <h1>Mail</h1>
+                    <a href="https://mail.google.com/">Gmail</a><br>
+                    <a href="https://mail.yahoo.com/">Yahoo</a>
+                </div>
+                <div class="box" style="float: left">
+                    <h1>Bankruptcy</h1>
+                    <a href="tradingview.com/chart/">Tradingview</a>
+                </div>
+            </div>
+            <textarea class="notes" rows=30 cols=60 spellcheck="false" id="notes"></textarea>
+        </div>
     </body>
 </html>
